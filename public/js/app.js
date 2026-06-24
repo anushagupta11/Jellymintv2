@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Textarea dynamic height adjustment
   chatInput.addEventListener('input', () => {
     chatInput.style.height = '24px';
-    chatInput.style.height = (chatInput.scrollHeight - 16) + 'px';
+    chatInput.style.height = chatInput.scrollHeight + 'px';
     sendBtn.disabled = !chatInput.value.trim() || isGenerating;
   });
 
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (data.online) {
         dot.className = 'status-dot online';
-        statusText.textContent = 'Ollama Connected';
+        statusText.textContent = 'AI Service Connected';
         ollamaErrorBanner.classList.add('hidden');
         
         activeModels = data.models;
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
           currentModelSpan.textContent = 'None';
           ollamaErrorBanner.classList.remove('hidden');
           ollamaErrorBanner.querySelector('h4').textContent = 'No local models found';
-          ollamaErrorBanner.querySelector('p').innerHTML = 'Ollama is online, but you have no models installed. Run <code>ollama pull qwen2.5</code> in your terminal to install one.';
+          ollamaErrorBanner.querySelector('p').innerHTML = 'AI Service is online, but you have no models installed. Please install a model in your terminal to continue.';
           return;
         }
 
@@ -151,8 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
         currentModelSpan.textContent = selectedModel;
       } else {
         dot.className = 'status-dot offline';
-        statusText.textContent = 'Ollama Offline';
-        modelSelect.innerHTML = '<option value="" disabled selected>Ollama Offline</option>';
+        statusText.textContent = 'AI Service Offline';
+        modelSelect.innerHTML = '<option value="" disabled selected>AI Service Offline</option>';
         currentModelSpan.textContent = 'None';
         ollamaErrorBanner.classList.remove('hidden');
       }
@@ -425,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const prompt = card.getAttribute('data-prompt');
       chatInput.value = prompt;
       chatInput.style.height = 'auto';
-      chatInput.style.height = (chatInput.scrollHeight - 16) + 'px';
+      chatInput.style.height = chatInput.scrollHeight + 'px';
       sendBtn.disabled = false;
       chatInput.focus();
     });
