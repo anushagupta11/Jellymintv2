@@ -1,6 +1,8 @@
-<img src="public/logo.svg” alt=“Jellymint Logo" width="500" height="500" />
+<p align="center">
+  <img src="public/logo.svg" alt="Jellymint Logo" width="120" height="120" />
+</p>
 
-# Jellymint Chatbot
+<h1 align="center">Jellymint Chatbot</h1>
 
 > A premium, privacy-focused local AI assistant client offering a high-fidelity interface and secure, authenticated chat history storage.
 
